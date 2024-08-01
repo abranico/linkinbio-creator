@@ -1,25 +1,9 @@
-import { ChangeEvent, useState } from "react";
-import { Linkinbio } from "./components/Linkinbio";
 import Form from "./components/Form";
-import { ILinkinbio } from "./types";
+import { Linkinbio } from "./components/Linkinbio";
+import useLinks from "./hooks/useLinks";
 
 function App() {
-  const [linkinbio, setLinkinbio] = useState<ILinkinbio>({
-    img: "https://unavatar.io/banner.png",
-    name: "John Doe",
-    description: "Web Developer | Tech Enthusiast | Blogger",
-    links: [],
-  });
-
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement>,
-    name: "name" | "description"
-  ) => {
-    setLinkinbio((prevData) => ({
-      ...prevData,
-      [name]: e.target.value,
-    }));
-  };
+  const { linkinbio, handleChange } = useLinks();
 
   return (
     <div className="flex justify-between ">
