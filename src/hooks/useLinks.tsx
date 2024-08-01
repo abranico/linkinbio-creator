@@ -3,9 +3,9 @@ import { ILinkinbio } from "../types";
 
 export default function useLinks() {
   const [linkinbio, setLinkinbio] = useState<ILinkinbio>({
-    img: "https://unavatar.io/banner.png",
-    name: "John Doe",
-    description: "Web Developer | Tech Enthusiast | Blogger",
+    img: "",
+    name: "",
+    description: "",
     links: [],
   });
 

@@ -6,8 +6,8 @@ function App() {
   const { linkinbio, handleChange } = useLinks();
 
   return (
-    <div className="flex justify-between ">
-      <aside className="sticky top-0 h-screen w-[750px]  flex flex-col ">
+    <div className="flex flex-col md:flex-row md:justify-between">
+      <aside className="md:sticky md:top-0 h-screen md:w-[750px]  flex flex-col ">
         <header className="p-10 ">
           <h1 className="text-5xl font-black text-red-500">
             Link in Bio
