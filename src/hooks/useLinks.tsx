@@ -1,12 +1,12 @@
 import { ChangeEvent, useState } from "react";
-import { ILinkinbio } from "../types";
+import { ILink, ILinkinbio } from "../types";
 
 export default function useLinks() {
   const [linkinbio, setLinkinbio] = useState<ILinkinbio>({
     img: "",
     name: "",
     description: "",
-    links: [],
+    links: [{ id: "string", social: "string", url: "string", title: "string" }],
   });
 
   const handleChange = (
@@ -19,5 +19,18 @@ export default function useLinks() {
     }));
   };
 
-  return { linkinbio, handleChange };
+  const addLink = ({ id, social, title, url }: ILink) => {
+    const newLink = {
+      id,
+      social,
+      url,
+      title,
+    };
+    setLinkinbio((prevLinkinbio) => ({
+      ...prevLinkinbio,
+      links: [...prevLinkinbio.links, newLink],
+    }));
+  };
+
+  return { linkinbio, handleChange, addLink };
 }

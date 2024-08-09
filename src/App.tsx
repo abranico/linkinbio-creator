@@ -1,9 +1,9 @@
 import Form from "./components/Form";
 import { Linkinbio } from "./components/Linkinbio";
-import useLinks from "./hooks/useLinks";
+import { useLinkinbioContext } from "./context/linkinbio.context";
 
 function App() {
-  const { linkinbio, handleChange } = useLinks();
+  const { linkinbio, handleChange } = useLinkinbioContext();
 
   return (
     <div className="flex flex-col md:flex-row md:justify-between">
@@ -15,10 +15,10 @@ function App() {
               Creator
             </span>
           </h1>
-          {/* <p className="max-w-md text-gray-700 text-xl w-full mt-3">
+          <p className="max-w-md text-gray-700 text-xl w-full mt-3">
             Crea y personaliza tu propio hub de enlaces con facilidad. Comparte
             tus enlaces favoritos en un solo lugar, de manera rápida y elegante.
-          </p> */}
+          </p>
         </header>
         <Form
           handleChange={handleChange}
@@ -26,7 +26,7 @@ function App() {
           description={linkinbio.description}
         />
 
-        <footer className="bg-gray-600 text-gray-300 mt-auto p-5 text-center ">
+        <footer className="bg-gray-600 text-gray-300 mt-auto p-5 text-center select-none">
           developed by{" "}
           <a href="#" className="hover:text-pink-400">
             @nicoabra

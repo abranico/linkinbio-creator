@@ -5,9 +5,9 @@ export interface ILinkinbio {
   links: ILink[];
 }
 
-interface ILink {
+export interface ILink {
   id: string;
+  social: string;
   url: string;
   title: string;
-  icon: string;
 }

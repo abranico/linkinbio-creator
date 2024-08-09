@@ -1,5 +1,6 @@
 import { Link } from "./Link";
 import { ILinkinbio } from "../types";
+import AddLink from "./AddLink";
 
 interface IProps {
   data: ILinkinbio;
@@ -24,14 +25,12 @@ export function Linkinbio({ data }: IProps) {
           <Link
             key={link.id}
             id={link.id}
-            icon={link.icon}
             title={link.title}
             url={link.url}
+            social={link.social}
           />
         ))}
-        <button className="w-60 bg-violet-600 text-white   px-4 py-2 rounded-lg shadow-md hover:bg-violet-800 transition duration-300">
-          Add Link
-        </button>
+        <AddLink />
       </div>
     </main>
   );
