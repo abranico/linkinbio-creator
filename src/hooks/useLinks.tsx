@@ -6,7 +6,14 @@ export default function useLinks() {
     img: "",
     name: "",
     description: "",
-    links: [{ id: "string", social: "string", url: "string", title: "string" }],
+    links: [
+      {
+        id: "string",
+        social: "string",
+        url: "https://google.com",
+        title: "string",
+      },
+    ],
   });
 
   const handleChange = (
@@ -32,5 +39,12 @@ export default function useLinks() {
     }));
   };
 
-  return { linkinbio, handleChange, addLink };
+  const removeLink = (id: string) => {
+    setLinkinbio((prevLinkinbio) => ({
+      ...prevLinkinbio,
+      links: prevLinkinbio.links.filter((link) => link.id !== id),
+    }));
+  };
+
+  return { linkinbio, handleChange, addLink, removeLink };
 }

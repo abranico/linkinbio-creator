@@ -13,14 +13,18 @@ type ILinkinbioContext = {
     name: "name" | "description"
   ) => void;
   addLink: ({ id, social, title, url }: ILink) => void;
+  removeLink: (id: string) => void;
 };
 
 export const LinkinbioContext = createContext<ILinkinbioContext | null>(null);
 
 const LinkinbioContextProvider = ({ children }: ILinkinbioContextProvider) => {
-  const { linkinbio, handleChange, addLink } = useLinks();
+  const { linkinbio, handleChange, addLink, removeLink } = useLinks();
+
   return (
-    <LinkinbioContext.Provider value={{ linkinbio, handleChange, addLink }}>
+    <LinkinbioContext.Provider
+      value={{ linkinbio, handleChange, addLink, removeLink }}
+    >
       {children}
     </LinkinbioContext.Provider>
   );
